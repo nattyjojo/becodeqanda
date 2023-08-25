@@ -5,13 +5,13 @@ const Registeration = ({title}) => {
        <main className="bg-primary-color text-light-color leading-10 text-center rounded-[20%] inline-block">
       <h1 className="font-bold">{title}</h1>
         <form className="px-[3rem] py-[3rem]">
-          <label className="font-meduim">Username</label>
+          <label className="font-meduim" htmlFor="username">Username</label>
           <br></br>
-          <input className="text-center text-[#444343] font-semibold" type="text" id="" name="" placeholder="Enter Username"></input>
+          <input className="text-center text-[#444343] font-semibold" type="text" id="username" name="username" placeholder="Enter Username"></input>
           <br></br>
-          <label>Password </label>
+          <label htmlFor="password">Password </label>
           <br></br>
-          <input className="text-center text-[#444343] font-semibold" type="password" placeholder="Enter Password"></input>
+          <input className="text-center text-[#444343] font-semibold" name="password" id="password" type="password" placeholder="Enter Password"></input>
           <br></br>
           <input className="bg-secondary-color px-10 mt-5 rounded-[25%]" type="submit" value="Submit"></input>
         </form>
