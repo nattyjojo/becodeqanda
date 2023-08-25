@@ -21,7 +21,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div id="header" className="bg-primary-color text-light-color flex justify-between align-middle p-5 text-lg font-medium">
+    <div id="header" className="bg-secondary-color text-light-color flex justify-between align-middle p-5 text-lg font-medium">
       <div className=" logo cursor-pointer">
         <h1>
           {/* Logo */}

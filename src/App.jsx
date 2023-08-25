@@ -9,7 +9,7 @@ function App() {
 
     <>
     <Header />
-    <Registeration />
+    <Registeration title={"Register"}/>
     <FooterContributor />
     </>
   )
