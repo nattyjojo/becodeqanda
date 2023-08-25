@@ -25,7 +25,8 @@ const Header = () => {
       <div className=" logo cursor-pointer">
         <h1>
           {/* Logo */}
-          &lt;/<span className="text-button-color">be</span>
+          <a href="/Homepage"></a>
+          &lt;/<span className="logo text-button-color">be</span>
           <span>codeqanda</span>&gt;
         </h1>
       </div>
@@ -56,10 +57,13 @@ const Header = () => {
       ) : (
         // Show menu links on larger screens
         <div id="navbar" className="flex gap-2">
+          <a href="/Home" className="hover:text-button-color" >
+            Home
+            </a>
           <a href="/Register" className="hover:text-button-color">
             Register
           </a>
-          <a href="/login" className="hover:text-button-color">
+          <a href="/Login" className="hover:text-button-color">
             Login
           </a>
         </div>
