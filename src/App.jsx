@@ -1,17 +1,18 @@
 import './App.css'
-import FooterContributor from './components/footer/footer'
-import Header from './components/hearder/Header'
-import Registeration from './components/registeration/registeration'
+import { Route, Routes } from 'react-router-dom'
+import RegisterationPage from "./pages/registeration"
+import LoginPage from './pages/login'
+
+
 
 function App() {
 
   return (
+    <Routes>
+      <Route path='/register' element={<RegisterationPage/>}/>
+      <Route path='/login' element={<LoginPage/>}/>
+    </Routes>
 
-    <>
-    <Header />
-    <Registeration title={"Register"}/>
-    <FooterContributor />
-    </>
   )
 }
 
