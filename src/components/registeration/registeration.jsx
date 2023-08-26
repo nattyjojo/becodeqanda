@@ -10,7 +10,7 @@ const Registeration = ({title}) => {
           <input className="text-center text-[#444343] font-semibold" type="text" id="username" name="username" placeholder="Enter Username"></input>
           <br></br>
           <label htmlFor="password">Password </label>
-          <br></br>
+          <br></br> 
           <input className="text-center text-[#444343] font-semibold" name="password" id="password" type="password" placeholder="Enter Password"></input>
           <br></br>
           <input className="bg-secondary-color px-5 py-2 mt-2 font-extrabold border rounded-lg hover:text-primary-color" type="submit" value="Submit"></input>
