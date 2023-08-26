@@ -8,7 +8,7 @@ export default function LoginPage(){
     return(
         <>
             <Header />
-            <Registeration title={"Login"}/>
+            <Registeration title={"Login"}/>:
             <Footer />
        </>
     )
