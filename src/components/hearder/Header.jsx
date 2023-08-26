@@ -59,9 +59,9 @@ const Header = () => {
           <a href="/Register" className="hover:text-button-color">
             Register
           </a>
-          <a href="/login" className="hover:text-button-color">
-            Login
-          </a>
+
+            <a className="hover:text-button-color" href="login">Login</a>
+            
         </div>
       )}
     </div>

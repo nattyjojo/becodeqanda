@@ -13,7 +13,7 @@ const Registeration = ({title}) => {
           <br></br>
           <input className="text-center text-[#444343] font-semibold" name="password" id="password" type="password" placeholder="Enter Password"></input>
           <br></br>
-          <input className="bg-secondary-color px-10 mt-5 rounded-[25%]" type="submit" value="Submit"></input>
+          <input className="bg-secondary-color px-5 py-2 mt-2 font-extrabold border rounded-lg hover:text-primary-color" type="submit" value="Submit"></input>
         </form>
       </main>
      </section>
