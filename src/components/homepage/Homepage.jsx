@@ -2,7 +2,7 @@ import Header from "../hearder/Header";
 import Footer from "../footer/footer";
 
 export default function Homepage() {
-  const date = new Date(2023, 8, 26, 2);
+  const date = new Date();
   const hours = date.getHours();
   let timeOfDay;
 

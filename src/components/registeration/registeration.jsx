@@ -1,4 +1,3 @@
-
 const Registration = ({ title }) => {
   return (
     <section className="flex justify-center items-center h-screen font-medium">
