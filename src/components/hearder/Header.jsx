@@ -66,10 +66,6 @@ const Header = () => {
           <a href="/Login" className="hover:text-button-color">
             Login
           </a>
-
-            <a className="hover:text-button-color" href="login">Login</a>
-            
-
         </div>
       )}
     </div>
