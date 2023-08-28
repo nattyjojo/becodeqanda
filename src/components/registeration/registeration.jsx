@@ -1,7 +1,7 @@
 const Registration = ({ title }) => {
   return (
-    <section className="flex justify-center items-center h-screen font-medium">
-      <main className="bg-white p-6 md:p-8 rounded-lg shadow-md w-full lg:w-1/2 xl:w-1/3">
+    <section className="flex justify-center items-center h-[80vh] font-medium">
+      <main className="bg-white p-6 md:p-8 rounded-lg shadow-md  w-full lg:w-1/2 xl:w-1/3">
         <h1 className="text-2xl font-bold mb-4">{title}</h1>
         <form className="space-y-4">
           <div>

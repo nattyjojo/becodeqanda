@@ -21,14 +21,13 @@ const Header = () => {
   }, []);
 
   return (
-    <div id="header" className="bg-secondary-color text-light-color flex justify-between align-middle p-5 text-lg font-medium">
+    <div id="header" className="bg-secondary-color bg-opacity-50 text-light-color flex justify-between align-middle p-5 text-lg font-medium">
       <div className=" logo cursor-pointer">
-        <h1>
-          {/* Logo */}
-          <a href="/Homepage"></a>
+        
+          <a href="/home">
           &lt;/<span className="logo text-button-color">be</span>
           <span>codeqanda</span>&gt;
-        </h1>
+          </a>
       </div>
       {showMenu ? (
         // Show menu button on small screens
