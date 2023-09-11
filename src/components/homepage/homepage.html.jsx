@@ -22,7 +22,7 @@ export default function Homepage() {
         <div className="text-center">
           <div className="type-container">
           <h1 className=" typed-out text-xl md:text-5xl  font-main font-bold text-light-color mb-4">
-            Good {timeOfDay}, Welcome Back!
+            Good {timeOfDay}, Welcomee Back!
           </h1>
           </div>
           <h3 className="mb-4 text-light-color md:text-3xl">
