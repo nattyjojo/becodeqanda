@@ -1,16 +1,16 @@
-
-export default function JoinQuiz(){
-    return(
-        <section className="bg-primary-color text-light-color leading-10 text-center rounded-[20%] inline-block mt-[10vh] ml-[40vw] ">
-            <h1 className="font-extrabold">BecodeQandA</h1>
-            <form className="px-[2rem] py-[5rem] " action="">
-                <label className="font-extrabold" htmlFor="code">Enter Code</label>
-                <br />
-                <input className="text-center text-[#444343] font-semibold"  type="text" name="code" id="code" />
-                <br />
-                <br />
-                <button className="bg-secondary-color px-5 py-2 mt-2 font-extrabold border rounded-lg hover:text-primary-color" type="submit">Submit</button>
-            </form>
+export default function JoinQuiz() {
+    return (
+        <section className="flex items-center justify-center min-h-[80vh]">
+            <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
+                <h1 className="text-2xl  font-bold mb-6">Join The Quiz</h1>
+                <form action="">
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="code">Enter Code</label>
+                        <input className="mt-1 px-3 py-2 w-full border rounded-md focus:ring-primary-color focus:border-primary-color" type="text" name="code" id="code" />
+                    </div>
+                    <button className="w-full bg-secondary-color text-white py-2 rounded-md font-bold hover:bg-button-color transition duration-300 ease-in-out" type="submit">Join</button>
+                </form>
+            </div>
         </section>
-    )
+    );
 }
