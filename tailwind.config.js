@@ -8,6 +8,10 @@ export default {
         "secondary-color": "#194747",
         "light-color": "#FFF",
         "button-color": "#46C3C6",
+        "answerbtn-one": "red",
+        "shadow-color": "0, 0, 0, 0.15 0px -4px 0px 1px inset",
+        // yellow: "#f5a23d",
+        // green: "#34d399",
       },
       fontFamily: {
         "main-font": "Barlow, Sans-serif, sans-serif",
