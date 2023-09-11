@@ -1,5 +1,6 @@
 import Header from "../hearder/Header";
 import Footer from "../footer/footer";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   const date = new Date();
@@ -21,23 +22,23 @@ export default function Homepage() {
         <div className="text-center">
           <div className="type-container">
           <h1 className=" typed-out text-xl md:text-5xl  font-main font-bold text-light-color mb-4">
-            Good {timeOfDay}, Welcome Back!
+            Good {timeOfDay}, Welcomee Back!
           </h1>
           </div>
-          <h3 className=" mb-4 text-light-color md:text-3xl">
+          <h3 className="mb-4 text-light-color md:text-3xl">
             Are you ready to put your knowledge to the test? 
             <br />Look no further than Becodeqanda
           </h3>
           <div className="space-4  flex justify-center gap-4 ">
             <button className="bg-transparent  border-teal-400 border-2 text-light-color mt-5  px-8 py-4 rounded-md  hover:bg-button-color  transition duration-300 ease-in-out">
-              <a href="/Register" className="font-bold cursor-pointer">
+            <Link to="/register" className="font-bold cursor-pointer">
                 Register
-              </a>
+              </Link>
             </button>
             <button className="bg-transparent border-2 border-teal-400 text-light-color mt-5 px-8 py-4 rounded-md hover:bg-button-color transition duration-300 ease-in-out">
-              <a href="/Login" className="cursor-pointer font-bold">
+            <Link to="/login" className="cursor-pointer font-bold">
                 Login
-              </a>
+              </Link>
             </button>
           </div>
         </div>
