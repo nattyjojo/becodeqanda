@@ -32,3 +32,15 @@
     animation: slide-out 0.5s ease-in-out forwards;
   }
   
+
+/* Style for correct answer */
+.correctAnswer {
+  background-color: #4caf50; /* Green */
+  color: #fff; /* White text */
+}
+
+/* Style for wrong answer */
+.wrongAnswer {
+  background-color: #f44336; /* Red */
+  color: #fff; /* White text */
+}
