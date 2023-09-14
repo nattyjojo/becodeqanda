@@ -1,10 +1,33 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const Registration = ({ title }) => {
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
+  const handleNavigation = async (condition) => {
+    if (condition === "success") {
+      const success = () => toast.success("Registration Successful");
+      success();
+      setTimeout(() => {
+        // Navigate to a different route
+        navigate("/login");
+      }, 1000);
+    } else {
+      condition === "error";
+      const error = toast.error("User  Name Already Exist");
+      error();
+      setTimeout(() => {
+        // Navigate to a different route
+        navigate("/register");
+      }, 1000);
+    }
+  };
+
+  const SING_UP_APIURL =
+    "https://kahoutserver-production.up.railway.app/api/sign_up";
   return (
     <section className="flex justify-center items-center h-[80vh] font-medium">
       <main className="bg-white p-6 md:p-8 rounded-lg shadow-md  w-full lg:w-1/2 xl:w-1/3">
@@ -12,14 +35,18 @@ const Registration = ({ title }) => {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            console.log({ username: userName, password: password });
             axios
-              .post(
-                "https://kahoutserver-production.up.railway.app/api/sign_up",
-                { username: userName, password: password }
-              )
+              .post(SING_UP_APIURL, {
+                username: userName,
+                password: password,
+              })
               .then((response) => {
-                console.log(response.data);
+                [
+                  response.data.message === "User registered"
+                    ? handleNavigation("success")
+                    : handleNavigation("error"),
+                ];
+                console.log(response.data.message);
               })
               .catch((error) => {
                 console.error(error);
@@ -55,20 +82,21 @@ const Registration = ({ title }) => {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
-          <Link to="/login" className="hover:text-button-color">
+          {/* <Link to="/login" className="hover:text-button-color">
             <button
               type="submit"
               className="w-full bg-secondary-color text-white py-2 rounded-md  hover:bg-button-color transition duration-300 ease-in-out"
             >
               Submit
             </button>
-          </Link>
-          {/* <button
+          </Link> */}
+          <Toaster />
+          <button
             type="submit"
             className="w-full bg-secondary-color text-white py-2 rounded-md  hover:bg-button-color transition duration-300 ease-in-out"
           >
             Submit
-          </button> */}
+          </button>
         </form>
       </main>
     </section>
