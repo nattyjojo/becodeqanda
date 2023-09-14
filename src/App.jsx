@@ -6,6 +6,7 @@ import DashboardPage from './pages/dashBoard'
 import Homepage from './components/homepage/homepage.html'
 import JoinQuizPage from './pages/joinquiz'
 import CreateQuizPage from './pages/creatquiz'
+import Livegame from './pages/playgame'
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
       <Route path='/dashboard' element={<DashboardPage/>}/>
       <Route path='/joinquiz' element={<JoinQuizPage/>}/>
       <Route path='/createquiz' element={<CreateQuizPage/>}/>
-
+      <Route path='/playgame' element={<Livegame />} />
     </Routes>
     </>
   )
