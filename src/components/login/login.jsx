@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Registration = ({ title }) => {
+const Login = ({ title }) => {
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
   return (
@@ -55,7 +55,7 @@ const Registration = ({ title }) => {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
-          <Link to="/login" className="hover:text-button-color">
+          <Link to="/dashboard" className="hover:text-button-color">
             <button
               type="submit"
               className="w-full bg-secondary-color text-white py-2 rounded-md  hover:bg-button-color transition duration-300 ease-in-out"
@@ -75,4 +75,4 @@ const Registration = ({ title }) => {
   );
 };
 
-export default Registration;
+export default Login;
