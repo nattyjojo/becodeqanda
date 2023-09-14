@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -24,7 +24,7 @@ const Header = () => {
       className="bg-secondary-color bg-opacity-50 text-light-color flex justify-between items-center p-5 text-lg font-medium"
     >
       <div className="logo cursor-pointer">
-        <Link to="/home">
+        <Link to="/">
           &lt;/<span className="logo text-button-color">be</span>
           <span>codeqanda</span>&gt;
         </Link>
