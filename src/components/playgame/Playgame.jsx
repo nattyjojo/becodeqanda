@@ -10,9 +10,9 @@ import {
 import "./Playgame.css";
 
 export default function Playgame(props) {
-  const optStyle = "m-2 px-5 py-3 md:px-40 md:py-5 inline-block solid rounded text-2xl md:text-5xl";
+  const optStyle = "m-2 px-5 py-3 md:px-40 md:py-5 inline-block solid rounded text-1xl md:text-3xl";
   const questionStyle = "bg-[green] text-white p-3 rounded  mb-20";
-  const answerStyle = "bg-green-300 text-green-900 p-3 rounded cursor-pointer ";
+  const answerStyle = "bg-green-300 text-green-900 p-3 rounded cursor-pointer answer";
 
   const quizData = useMemo(
     () => [
@@ -177,7 +177,6 @@ export default function Playgame(props) {
     const answerElements = document.getElementsByClassName("answer");
     for (let i = 0; i < answerElements.length; i++) {
       answerElements[i].classList.remove("correctAnswer", "wrongAnswer");
-      console.log(i);
     }
   };
 
@@ -212,12 +211,12 @@ export default function Playgame(props) {
             <h1 className={`${optStyle} ${questionStyle}`}>
               {currentQuestion.question}
             </h1>
-            <div className="flex flex-wrap justify-center items-center flex-row">
+            <div className="answerContainer">
               {currentQuestion.options.map((option, index) => (
                 <span
                   key={index}
                   id={option}
-                  className={`${optStyle} ${answerStyle} flex it mt-4 mx-2 answer w-50`}
+                  className={`${optStyle} ${answerStyle} answer`}
                   onClick={() => handleAnswerClick(option)}
                 >
                   {option}
@@ -227,15 +226,15 @@ export default function Playgame(props) {
           </div>
         )}
         {!quizRunning && quizFinished && (
-          <div className="mt-8 md:mt-20 flex justify-center items-center">
-            <h1 className={`${optStyle} ${questionStyle}`}>Quiz Finished!</h1>
+          <div className=" mt-8 md:ml-3 md:mt-20 flex justify-center items-center">
+            <h1 className={`${optStyle} ${questionStyle}`}>Quiz Finished  Check Out Your Incorrect Responses Below And See Where You Can Improve.</h1>
           </div>
         )}
       </section>
        
        {/* user profile */}
       <section className={userProfileClass}>
-        <div className="userProfileHeader mb-4">
+        <div className="userProfileHeader ">
           <button
             className="bg-transparent border-none outline-none cursor-pointer"
             onClick={toggleUserProfile}
@@ -286,7 +285,7 @@ export default function Playgame(props) {
             achievements with friends and challenge them to beat your score!
           </p>
         </div>
-        <div className="trackQuestions">
+        <div className="trackQuestions mb-7">
           <h2 className="text-lg md:text-xl font-semibold mb-2 mt-5">
             Incorrect Responses
           </h2>
