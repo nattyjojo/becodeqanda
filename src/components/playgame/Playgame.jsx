@@ -217,7 +217,7 @@ export default function Playgame(props) {
                 <span
                   key={index}
                   id={option}
-                  className={`${optStyle} ${answerStyle} flex  mt-4 mx-2 answer w-50`}
+                  className={`${optStyle} ${answerStyle} flex it mt-4 mx-2 answer w-50`}
                   onClick={() => handleAnswerClick(option)}
                 >
                   {option}
@@ -254,7 +254,7 @@ export default function Playgame(props) {
             Rank: 3rd <FaMedal className="ml-1 text-gray-500" />
           </p>
         </div>
-        <div className="userButtons mt-4">
+        <div className="userButtons mt-7">
           <button
             className="bg-red-500 text-white px-4 py-2 rounded mr-2 hover:bg-red-600"
             onClick={stopQuiz}
@@ -268,9 +268,9 @@ export default function Playgame(props) {
             <FaSyncAlt className="mr-1" /> Reset Quiz
           </button>
         </div>
-        <div className="userProfileContent mt-4 text-sm md:text-base bg-[#dddcdc69]">
+        <div className="userProfileContent mt-8 text-sm md:text-base bg-[#dddcdc69]">
           <p className="mb-2">
-            <FaUser className="text-blue-500 mr-2" /> Welcome to the quiz game!
+            <FaUser className="text-blue-500 mr-2 mt" /> Welcome to the quiz game!
             Test your knowledge and earn points to climb the leaderboard.
           </p>
           <p className="mb-2">
@@ -287,7 +287,7 @@ export default function Playgame(props) {
           </p>
         </div>
         <div className="trackQuestions">
-          <h2 className="text-lg md:text-xl font-semibold mb-2">
+          <h2 className="text-lg md:text-xl font-semibold mb-2 mt-5">
             Incorrect Responses
           </h2>
           <ul className="bg-[#dddcdc69]">
