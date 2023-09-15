@@ -35,12 +35,50 @@
 
 /* Style for correct answer */
 .correctAnswer {
-  background-color: #4caf50; /* Green */
-  color: #fff; /* White text */
+  background-color: #4caf50;
+  color: #fff; 
 }
 
 /* Style for wrong answer */
 .wrongAnswer {
   background-color: #f44336; /* Red */
   color: #fff; /* White text */
+}
+
+
+
+
+/* Add a container around the answer buttons */
+.answerContainer {
+  display: block;
+  /* flex-wrap: wrap; */
+  flex-direction: row;
+  justify-content: center;
+  font-size: 15px; 
+  margin-bottom: 10px;
+  /* Adjust the gap between answer buttons as needed */
+}
+
+/* Update the answer button styles */
+.answer {
+  flex: 1; /* Distribute the width equally among answer buttons */
+ /* Adjust the minimum width as needed */
+  text-align: center;
+ /* Adjust the top margin as needed */
+white-space: nowrap;
+width: 570px;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+  .answerContainer {
+    flex-direction: column;
+    align-items: center;
+    margin-top: -60px;
+  }
+  
+  .answer {
+    width: 95%;
+    min-width: 95%;
+  }
 }
