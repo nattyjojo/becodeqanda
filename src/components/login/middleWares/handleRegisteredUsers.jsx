@@ -1,25 +1,25 @@
 import axios from "axios";
-import Cookies from "js-cookie";
 
-const validateToken = () => {
+const validateToken = async (token, setUserIsValid) => {
   const Login_In_APIURL =
     "https://kahoutserver-production.up.railway.app/api/login";
-  const token = Cookies.get("authToken");
-  console.log(token);
-  if (token) {
-    axios
-      .get(Login_In_APIURL, {
-        token: token,
-      })
-      .then((response) => {
-        console.log(response.data.token);
-      })
-      .catch((error) => {
-        console.error(error);
+  if (token !== undefined) {
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    try {
+      const get = await axios.get(Login_In_APIURL, {
+        headers: headers,
       });
-    return true;
+
+      await get.response;
+      const status = get.status;
+      setUserIsValid(status);
+    } catch (err) {
+      console.log(err);
+    }
   } else {
-    return null;
+    return false;
   }
 };
 

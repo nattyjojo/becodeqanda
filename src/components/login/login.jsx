@@ -1,27 +1,27 @@
 import axios from "axios";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import setCookies from "./middleWares/setCookis";
+import { useState } from "react";
 const Login = ({ title }) => {
   const navigate = useNavigate();
+
   const handleNavigation = (condition) => {
     if (condition === "success") {
-      const success = () => toast.success("Successful");
+      const success = () => toast.success("login Successful");
       success();
       setTimeout(() => {
         // Navigate to a different route
         navigate("/dashBoard");
-        setCookies(token);
       }, 1000);
     } else {
       condition === "error";
-      const error = toast.error("User  Name Already Exist");
-      error();
+      const errorMsg = () => toast.error("incorrect Details");
+      errorMsg();
       setTimeout(() => {
         // Navigate to a different route
-        navigate("/login");
-      }, 1000);
+        navigate("/");
+      }, 500);
     }
   };
 
@@ -42,15 +42,16 @@ const Login = ({ title }) => {
                 password: password,
               })
               .then((response) => {
-                const token = response.data.token;
-                if (token) {
+                const ResToken = response.data.token;
+
+                const res = response.status;
+                if (res === 200) {
+                  setCookies(ResToken);
                   handleNavigation("success");
-                } else {
-                  handleNavigation("error");
                 }
               })
-              .catch((error) => {
-                console.error(error);
+              .catch(() => {
+                handleNavigation("error");
               });
           }}
           className="space-y-4"

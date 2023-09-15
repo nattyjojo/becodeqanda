@@ -4,24 +4,26 @@ import ShowAddedTem from "./showAddedTem";
 export default function AddedQuizList(props) {
   const [quizList, setQuizList] = useState([]);
   const addedQuiz = props.addedQuiz;
+  const quizName = props.quizName;
   const SaveDeleteAllQuiz = (todo) => {
     if (todo === "save") {
       setQuizList([]);
-      console.log("Quiz saved");
     } else {
       todo === "delete";
       setQuizList([]);
-      console.log("Quiz saved");
     }
   };
   useEffect(() => {
     if (props.saveOrDelete === "save") {
+      const submitUserQuiz = {
+        quizList,
+        quizName,
+      };
+      console.log(submitUserQuiz);
       setQuizList([]);
-      console.log("Quiz saved");
     } else {
       props.saveOrDelete === "delete";
       setQuizList([]);
-      console.log("Quiz saved");
     }
   }, [props.saveOrDelete]);
   useEffect(() => {

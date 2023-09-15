@@ -21,7 +21,7 @@ const Registration = ({ title }) => {
       error();
       setTimeout(() => {
         // Navigate to a different route
-        navigate("/register");
+        navigate("/login");
       }, 1000);
     }
   };
@@ -46,7 +46,6 @@ const Registration = ({ title }) => {
                     ? handleNavigation("success")
                     : handleNavigation("error"),
                 ];
-                console.log(response.data.message);
               })
               .catch((error) => {
                 console.error(error);
