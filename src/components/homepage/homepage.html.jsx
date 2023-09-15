@@ -14,7 +14,7 @@ export default function Homepage() {
   } else {
     timeOfDay = "Night";
   }
-
+  
   return (
     <div>
       <Header />
@@ -22,7 +22,7 @@ export default function Homepage() {
         <div className="text-center">
           <div className="type-container">
             <h1 className=" typed-out text-xl md:text-5xl  font-main font-bold text-light-color mb-4">
-              Good {timeOfDay}, Welcomee Back!
+              Good {timeOfDay}, Welcome Back!
             </h1>
           </div>
           <h3 className="mb-4 text-light-color md:text-3xl">
@@ -31,16 +31,12 @@ export default function Homepage() {
             Look no further than Becodeqanda
           </h3>
           <div className="space-4  flex justify-center gap-4 ">
-            <button className="bg-transparent  border-teal-400 border-2 text-light-color mt-5  px-8 py-4 rounded-md  hover:bg-button-color  transition duration-300 ease-in-out">
-              <Link to="/register" className="font-bold cursor-pointer">
+              <Link to="/register" className="font-bold cursor-pointer bg-transparent  border-teal-400 border-2 text-light-color mt-5  px-8 py-4 rounded-md  hover:bg-button-color  transition duration-300 ease-in-out">
                 Register
               </Link>
-            </button>
-            <button className="bg-transparent border-2 border-teal-400 text-light-color mt-5 px-8 py-4 rounded-md hover:bg-button-color transition duration-300 ease-in-out">
-              <Link to="/login" className="cursor-pointer font-bold">
+              <Link to="/login" className="cursor-pointer font-bold bg-transparent border-2 border-teal-400 text-light-color mt-5 px-8 py-4 rounded-md hover:bg-button-color transition duration-300 ease-in-out ">
                 Login
               </Link>
-            </button>
           </div>
         </div>
       </div>
