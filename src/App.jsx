@@ -7,6 +7,8 @@ import Homepage from "./components/homepage/homepage.html";
 import JoinQuizPage from "./pages/joinquiz";
 import CreateQuizPage from "./pages/creatquiz";
 import Livegame from "./pages/playgame";
+import ShowQuizPage from "./pages/ShowQuizPage";
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path="/createquiz" element={<CreateQuizPage />} />
         <Route path="*" element={<Homepage />} />
         <Route path="/playgame" element={<Livegame />} />
+        <Route path="/ShowQuizPage" element={<ShowQuizPage />} />
       </Routes>
     </>
   );

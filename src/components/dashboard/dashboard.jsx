@@ -30,14 +30,14 @@ const Dashboard = () => {
           <FontAwesomeIcon icon={faSignIn} className="mr-3" />
           Join Quiz
         </Link>
-        <a
-          href="#"
-          className="px-6 font-bold md:px-8 py-4 bg-primary-color text-white rounded-lg hover:bg-button-color transition duration-300 block text-center"
-          style={{ textDecoration: "none" }}
+        <Link 
+        to="/ShowQuizPage"
+        className="px-6 font-bold md:px-8 py-4 bg-primary-color text-white rounded-lg hover:bg-button-color transition duration-300 block text-center"
+        style={{ textDecoration: "none" }}
         >
           <FontAwesomeIcon icon={faEye} className="mr-3" />
           Show Quiz
-        </a>
+          </Link>
       </div>
     </section>
   );
