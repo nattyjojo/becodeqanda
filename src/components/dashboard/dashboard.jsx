@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faSignIn, faEye } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-export default function Dashboard() {
+const Dashboard = () => {
   return (
     <section className="text-light-color flex flex-col items-center justify-center min-h-[80vh] px-4">
       <h1 className="md:text-5xl text-2xl font-main font-bold text-light-color mb-4">
@@ -41,4 +41,6 @@ export default function Dashboard() {
       </div>
     </section>
   );
-}
+};
+
+export default Dashboard;
