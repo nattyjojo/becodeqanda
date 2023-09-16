@@ -1,24 +1,5 @@
 export default function QuestionInput(props) {
   return (
-    // <textarea
-    //   placeholder="Type Your Question Here!"
-    //   name="question"
-    //   id="question"
-    //   type="text"
-    //   cols="50"
-    //   rows="3"
-    //   required
-    //   className="
-
-    //       rounded text-center
-    //       resize-none
-
-    //       text-[#80808080]
-    //       "
-    //   onChange={(event) => props.setQuestion(event.target.value)}
-    // ></textarea>
-    //);
-
     <textarea
       placeholder="Type Your Question Here!"
       name="question"
