@@ -9,7 +9,7 @@ const BackgroundImg = (props) => {
         setClickedImageBorder(index);
         setBackgroundImg(event.target.src);
       }}
-      className={`rounded-full inline-block m-2 w-[4rem] h-[4rem]  border-2 `}
+      className={`rounded-full inline-block m-2 w-[7rem] h-[7rem]  border-2 `}
       style={{ borderColor: `${props.color}` }}
       src={props.src}
       alt="background"

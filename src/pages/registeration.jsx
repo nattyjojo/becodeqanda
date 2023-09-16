@@ -5,7 +5,12 @@ import Footer from "../components/footer/footer";
 export default function RegisterationPage() {
   return (
     <>
-      <Header />
+      <Header
+        link2={"/about"}
+        content2={"ABOUT"}
+        link1={"/joinquiz"}
+        content1={"JOIN"}
+      />
       <Registeration title={"Register"} />
       <Footer />
     </>

@@ -1,7 +1,7 @@
 export default function JoinQuiz() {
   ///api/rooms/join_room
   return (
-    <section className="flex items-center justify-center min-h-[80vh]">
+    <section className="flex items-center justify-center h-[80vh]">
       <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
         <h1 className="text-2xl  font-bold mb-6">Join The Quiz</h1>
         <form action="">

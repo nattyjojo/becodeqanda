@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <section className="text-light-color flex flex-col items-center justify-center min-h-[80vh] px-4">
+    <section className="text-light-color flex flex-col items-center justify-center h-[93vh] px-4">
       <h1 className="md:text-5xl text-2xl font-main font-bold text-light-color mb-4">
         Welcome To Quiz Dashboard
       </h1>
@@ -30,14 +30,14 @@ const Dashboard = () => {
           <FontAwesomeIcon icon={faSignIn} className="mr-3" />
           Join Quiz
         </Link>
-        <Link 
-        to="/ShowQuizPage"
-        className="px-6 font-bold md:px-8 py-4 bg-primary-color text-white rounded-lg hover:bg-button-color transition duration-300 block text-center"
-        style={{ textDecoration: "none" }}
+        <Link
+          to="/ShowQuizPage"
+          className="px-6 font-bold md:px-8 py-4 bg-primary-color text-white rounded-lg hover:bg-button-color transition duration-300 block text-center"
+          style={{ textDecoration: "none" }}
         >
           <FontAwesomeIcon icon={faEye} className="mr-3" />
           Show Quiz
-          </Link>
+        </Link>
       </div>
     </section>
   );

@@ -6,7 +6,12 @@ import Footer from "../components/footer/footer";
 export default function LoginPage() {
   return (
     <>
-      <Header />
+      <Header
+        link2={"/about"}
+        content2={"ABOUT"}
+        link1={"/joinquiz"}
+        content1={"JOIN"}
+      />
       <Login title={"Login"} />:
       <Footer />
     </>

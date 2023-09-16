@@ -8,7 +8,7 @@ import JoinQuizPage from "./pages/joinquiz";
 import CreateQuizPage from "./pages/creatquiz";
 import Livegame from "./pages/playgame";
 import ShowQuizPage from "./pages/ShowQuizPage";
-
+import About from "./pages/about";
 
 function App() {
   return (
@@ -21,9 +21,10 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/joinquiz" element={<JoinQuizPage />} />
         <Route path="/createquiz" element={<CreateQuizPage />} />
-        <Route path="*" element={<Homepage />} />
         <Route path="/playgame" element={<Livegame />} />
-        <Route path="/ShowQuizPage" element={<ShowQuizPage />} />
+        <Route path="/profile" element={<ShowQuizPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<Homepage />} />
       </Routes>
     </>
   );
