@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/hearder/Header";
 import Footer from "../components/footer/footer";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -31,6 +32,20 @@ const About = () => {
           challenge, they embarked on an exciting journey to build a custom
           question and answer app designed specifically for their unique needs.
         </p>
+        <div className="space-4  flex justify-center gap-4 ">
+          <Link
+            to="/register"
+            className="font-bold cursor-pointer bg-transparent  border-teal-400 border-2 text-light-color mt-5  px-8 py-4 rounded-md  hover:bg-button-color  transition duration-300 ease-in-out"
+          >
+            Register
+          </Link>
+          <Link
+            to="/login"
+            className="cursor-pointer font-bold bg-transparent border-2 border-teal-400 text-light-color mt-5 px-8 py-4 rounded-md hover:bg-button-color transition duration-300 ease-in-out "
+          >
+            Login
+          </Link>
+        </div>
       </main>
       <section></section>
       {/* Add more iframe sections if needed */}
