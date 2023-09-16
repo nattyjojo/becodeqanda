@@ -1,5 +1,4 @@
 export default function JoinQuiz() {
-  ///api/rooms/join_room
   return (
     <section className="flex items-center justify-center h-[80vh]">
       <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
