@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import Header from "../components/hearder/Header";
 import QuestionInput from "../components/createQuiz/question";
 import AnswerBtn from "../components/createQuiz/answer";
@@ -61,256 +60,272 @@ export default function CreateQuizPage() {
 
   useEffect(() => {
     if (token === undefined) {
-      navigate("/");
+      navigate("/login");
     } else {
-      const hasToken = async (ttoken, ssetUserIsValid) => {
+      const hasToken = async (token, setUserIsValid) => {
         try {
-          await validateToken(ttoken, ssetUserIsValid);
+          await validateToken(token, setUserIsValid);
         } catch (err) {
-          navigate("/");
+          navigate("/login");
         }
       };
-      hasToken(token, setUserIsValid);
+      hasToken(token, setUserIsValid, navigate);
     }
   });
 
   if (userIsValid === 200) {
     return (
-      <>
-        <Header />
-        <main className="flex justify-center pt-[2rem] text-center px-[1rem] ">
-          <section className="w-[20vw] relative  h-[75vh] text-white border-2">
-            <input
-              onChange={(event) => setQuizName(event.target.value)}
-              type="text"
-              placeholder="Enter Quiz Name"
-              className="w-[90%] mt-2 text-center text-black py-[1.2rem]"
-            />
-            <Toaster />
-            <AddedQuizList
-              saveOrDelete={saveOrDelete}
-              quizName={quizName}
-              addedQuiz={addedQuiz}
-            />
-            <hr />
-            <div className=" absolute bottom-0 w-[20vw]">
-              <button
-                onClick={(event) => {
-                  event.preventDefault();
-                  setSaveOrDeletState("save");
-                }}
-                className=" w-[90%] bg-secondary-color text-white py-2 rounded-md mt-3 hover:bg-button-color transition duration-300 ease-in-out"
-              >
-                Save Quiz
-              </button>
-
+      <main className="h-[100vh]">
+        <Header
+          link2={"/about"}
+          content2={"ABOUT"}
+          link1={"/joinquiz"}
+          content1={"JOIN"}
+        />
+        <main>
+          <main className="flex  h-[80vh]  justify-center mt-5 text-center px-[1rem] ">
+            <section className="w-[23.75vw] h-[75vh]  relative border-solid   text-white border-2">
+              <input
+                onChange={(event) => setQuizName(event.target.value)}
+                type="text"
+                placeholder="Enter Quiz Name"
+                className="w-[90%] mt-3 text-center text-black rounded-full py-[1.2rem]"
+              />
+              <Toaster />
+              <AddedQuizList
+                saveOrDelete={saveOrDelete}
+                quizName={quizName}
+                addedQuiz={addedQuiz}
+              />
               <br />
-              <button
-                onClick={() => setSaveOrDeletState("delete")}
-                className="w-[90%] bg-secondary-color text-white py-2 rounded-md mt-3 mb-3 hover:bg-button-color transition duration-300 ease-in-out"
-              >
-                Delete All
-              </button>
-            </div>
-          </section>
-          <form
-            ref={clearForm}
-            onSubmit={(event) => {
-              event.preventDefault();
-              if (ans.length !== 0) {
-                setSelectedAnswer(!selectedAnswer);
 
-                if (clearForm.current) {
-                  clearForm.current.reset();
-                }
+              <div className="absolute text-center bottom-0 w-[100%]">
+                <hr />
+                <button
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setSaveOrDeletState("save");
+                  }}
+                  className=" w-[90%] bg-secondary-color text-white py-2 rounded-md mt-3 hover:bg-button-color transition duration-300 ease-in-out"
+                >
+                  Save Quiz
+                </button>
 
-                let addQuiz = [
-                  {
-                    question: question,
-                    option1: option1,
-                    option2: option2,
-                    option3: option3,
-                    option4: option4,
-                    timeLimit: [
-                      timeLimit === undefined ? defaultTimeLimit : timeLimit,
-                    ],
-                    points: [points === undefined ? defaultPoints : points],
-                    backgroundImg: [
-                      backgroundImg === undefined
-                        ? defaultBackgroundImage
-                        : backgroundImg,
-                    ],
-                    answer: ans,
-                  },
-                ];
-                setClickedImageBorder();
-                setBackgroundImg();
-                setAddQuiz(addQuiz);
-              } else {
-                errorMsg();
-              }
-            }}
-            className="flex text-center  "
-          >
-            <section
-              className="p-1 rounded-md pt-2"
-              style={{
-                backgroundImage: `url(${backgroundImg})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-              }}
-            >
-              <QuestionInput question={question} setQuestion={setQuestion} />
+                <button
+                  onClick={() => setSaveOrDeletState("delete")}
+                  className=" w-[90%] bg-secondary-color text-white py-2 rounded-md  mt-3 mb-2 hover:bg-button-color transition duration-300 ease-in-out"
+                >
+                  Delete All
+                </button>
+              </div>
               <br />
-              <section className="mt-[5rem]">
-                <section>
-                  {answerContainer.map((e, index) => {
-                    switch (index) {
-                      case 0:
-                        return (
-                          <AnswerBtn
-                            finalAnswer={finalAnswer}
-                            setGetAnswer={setGetAnswer}
-                            getAnswer={getAnswer}
-                            selectedAnswer={selectedAnswer}
-                            setSelectedAnswer={setSelectedAnswer}
-                            key={index}
-                            InputState={InputState}
-                            setInputState={setInputState}
-                            index={index}
-                            quizAnswer={quizAnswer}
-                            setQuizAnswer={setQuizAnswer}
-                            optionValue={option1}
-                            setOptionValue={setOption1}
-                            option="1"
-                            color="#c60929"
-                            fa="fa-regular fa-circle fa-2x"
-                          />
-                        );
-                      case 1:
-                        return (
-                          <AnswerBtn
-                            finalAnswer={finalAnswer}
-                            setGetAnswer={setGetAnswer}
-                            getAnswer={getAnswer}
-                            selectedAnswer={selectedAnswer}
-                            setSelectedAnswer={setSelectedAnswer}
-                            key={index}
-                            InputState={InputState}
-                            setInputState={setInputState}
-                            index={index}
-                            quizAnswer={quizAnswer}
-                            setQuizAnswer={setQuizAnswer}
-                            optionValue={option2}
-                            setOptionValue={setOption2}
-                            option="2"
-                            color="#0542b9"
-                            fa="fa-regular fa-square fa-2x"
-                          />
-                        );
-                      default:
-                        return;
-                    }
-                  })}
-                </section>
-                <section>
-                  {answerContainer.map((e, index) => {
-                    switch (index) {
-                      case 2:
-                        return (
-                          <AnswerBtn
-                            finalAnswer={finalAnswer}
-                            setGetAnswer={setGetAnswer}
-                            getAnswer={getAnswer}
-                            selectedAnswer={selectedAnswer}
-                            setSelectedAnswer={setSelectedAnswer}
-                            key={index}
-                            InputState={InputState}
-                            setInputState={setInputState}
-                            index={index}
-                            quizAnswer={quizAnswer}
-                            setQuizAnswer={setQuizAnswer}
-                            optionValue={option3}
-                            setOptionValue={setOption3}
-                            option="3"
-                            color="#f5a23d"
-                            fa="fa-regular  fa-star fa-2x"
-                          />
-                        );
-                      case 3:
-                        return (
-                          <AnswerBtn
-                            finalAnswer={finalAnswer}
-                            setGetAnswer={setGetAnswer}
-                            getAnswer={getAnswer}
-                            selectedAnswer={selectedAnswer}
-                            setSelectedAnswer={setSelectedAnswer}
-                            key={index}
-                            InputState={InputState}
-                            setInputState={setInputState}
-                            index={index}
-                            quizAnswer={quizAnswer}
-                            setQuizAnswer={setQuizAnswer}
-                            optionValue={option4}
-                            setOptionValue={setOption4}
-                            option="4"
-                            color="#106b03"
-                            fa="fa-regular fa-solid fa-moon fa-2x"
-                          />
-                        );
-
-                      default:
-                        return null;
-                    }
-                  })}
-                </section>
-              </section>
             </section>
-            <section className="w-[20vw] h-[75vh] text-white border-2">
-              <TimeLimitButton set={setTimeLimit} />
-              <PointsButton set={setPoints} />
-              <section className="p-[1rem]">
-                {createQuizBackgroundLinks.map(
-                  (createQuizBackgroundLink, index) => (
-                    <BackgroundImg
-                      src={createQuizBackgroundLink}
-                      key={index}
-                      setClickedImageBorder={setClickedImageBorder}
-                      imageIndex={index}
-                      color={`${clickedImageBorder === index ? "green" : ""}`}
-                      setBackgroundImg={setBackgroundImg}
-                    />
-                  )
-                )}
-              </section>
+            <form
+              ref={clearForm}
+              onSubmit={(event) => {
+                event.preventDefault();
+                if (ans.length !== 0) {
+                  setSelectedAnswer(!selectedAnswer);
 
-              <button
-                type="submit"
-                onClick={() => {
-                  setGetAnswer(!getAnswer);
-                }}
-                className=" w-[90%] bg-secondary-color text-white py-2 rounded-md mt-3 hover:bg-button-color transition duration-300 ease-in-out"
-              >
-                Add Quiz
-              </button>
-              <br />
+                  if (clearForm.current) {
+                    clearForm.current.reset();
+                  }
 
-              <button
-                onClick={() => {
+                  let addQuiz = [
+                    {
+                      question: question,
+                      option1: option1,
+                      option2: option2,
+                      option3: option3,
+                      option4: option4,
+                      timeLimit: [
+                        timeLimit === undefined ? defaultTimeLimit : timeLimit,
+                      ],
+                      points: [points === undefined ? defaultPoints : points],
+                      backgroundImg: [
+                        backgroundImg === undefined
+                          ? defaultBackgroundImage
+                          : backgroundImg,
+                      ],
+                      answer: ans,
+                    },
+                  ];
                   setClickedImageBorder();
                   setBackgroundImg();
-                  setInputState([]);
+                  setAddQuiz(addQuiz);
+                } else {
+                  errorMsg();
+                }
+              }}
+              className="flex text-center w-[71.25vw] "
+            >
+              <section
+                className="p-1 rounded-md pt-2"
+                style={{
+                  backgroundImage: `url(${backgroundImg})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  height: "75vh",
+                  marginTop: "2%",
+                  maxWidth: "47.5vw",
                 }}
-                type="reset"
-                className=" w-[90%] bg-secondary-color text-white py-2 rounded-md mt-3 mb-3 hover:bg-button-color transition duration-300 ease-in-out"
               >
-                Delete Quiz
-              </button>
-            </section>
-          </form>
+                <QuestionInput question={question} setQuestion={setQuestion} />
+                <br />
+
+                <section className="  flex">
+                  <section>
+                    {answerContainer.map((e, index) => {
+                      switch (index) {
+                        case 0:
+                          return (
+                            <AnswerBtn
+                              finalAnswer={finalAnswer}
+                              setGetAnswer={setGetAnswer}
+                              getAnswer={getAnswer}
+                              selectedAnswer={selectedAnswer}
+                              setSelectedAnswer={setSelectedAnswer}
+                              key={index}
+                              InputState={InputState}
+                              setInputState={setInputState}
+                              index={index}
+                              quizAnswer={quizAnswer}
+                              setQuizAnswer={setQuizAnswer}
+                              optionValue={option1}
+                              setOptionValue={setOption1}
+                              option="1"
+                              color="#c60929"
+                              fa="fa-regular fa-circle  fa-2x"
+                            />
+                          );
+
+                        case 1:
+                          return (
+                            <AnswerBtn
+                              finalAnswer={finalAnswer}
+                              setGetAnswer={setGetAnswer}
+                              getAnswer={getAnswer}
+                              selectedAnswer={selectedAnswer}
+                              setSelectedAnswer={setSelectedAnswer}
+                              key={index}
+                              InputState={InputState}
+                              setInputState={setInputState}
+                              index={index}
+                              quizAnswer={quizAnswer}
+                              setQuizAnswer={setQuizAnswer}
+                              optionValue={option2}
+                              setOptionValue={setOption2}
+                              option="2"
+                              color="#0542b9"
+                              fa="fa-regular fa-square  fa-2x"
+                            />
+                          );
+                        default:
+                          return;
+                      }
+                    })}
+                  </section>
+                  <section>
+                    {answerContainer.map((e, index) => {
+                      switch (index) {
+                        case 2:
+                          return (
+                            <AnswerBtn
+                              finalAnswer={finalAnswer}
+                              setGetAnswer={setGetAnswer}
+                              getAnswer={getAnswer}
+                              selectedAnswer={selectedAnswer}
+                              setSelectedAnswer={setSelectedAnswer}
+                              key={index}
+                              InputState={InputState}
+                              setInputState={setInputState}
+                              index={index}
+                              quizAnswer={quizAnswer}
+                              setQuizAnswer={setQuizAnswer}
+                              optionValue={option3}
+                              setOptionValue={setOption3}
+                              option="3"
+                              color="#f5a23d"
+                              fa="fa-regular  fa-star  fa-2x"
+                            />
+                          );
+                        case 3:
+                          return (
+                            <AnswerBtn
+                              finalAnswer={finalAnswer}
+                              setGetAnswer={setGetAnswer}
+                              getAnswer={getAnswer}
+                              selectedAnswer={selectedAnswer}
+                              setSelectedAnswer={setSelectedAnswer}
+                              key={index}
+                              InputState={InputState}
+                              setInputState={setInputState}
+                              index={index}
+                              quizAnswer={quizAnswer}
+                              setQuizAnswer={setQuizAnswer}
+                              optionValue={option4}
+                              setOptionValue={setOption4}
+                              option="4"
+                              color="#106b03"
+                              fa="fa-regular fa-solid fa-moon  fa-2x"
+                            />
+                          );
+
+                        default:
+                          return null;
+                      }
+                    })}
+                  </section>
+                </section>
+              </section>
+              <section className="w-[23.75vw] h-[75vh] relative  text-white border-2">
+                <TimeLimitButton set={setTimeLimit} />
+                <PointsButton set={setPoints} />
+                <section className="p-[1rem] overflow-scroll h-[60%]">
+                  {createQuizBackgroundLinks.map(
+                    (createQuizBackgroundLink, index) => (
+                      <BackgroundImg
+                        src={createQuizBackgroundLink}
+                        key={index}
+                        setClickedImageBorder={setClickedImageBorder}
+                        imageIndex={index}
+                        color={`${clickedImageBorder === index ? "green" : ""}`}
+                        setBackgroundImg={setBackgroundImg}
+                      />
+                    )
+                  )}
+                </section>
+
+                <div className="absolute w-[100%] bottom-0">
+                  <button
+                    type="submit"
+                    onClick={() => {
+                      setGetAnswer(!getAnswer);
+                    }}
+                    className=" w-[90%] bg-secondary-color text-white py-2 rounded-md mt-3 hover:bg-button-color transition duration-300 ease-in-out"
+                  >
+                    Add Quiz
+                  </button>
+                  <br />
+
+                  <button
+                    onClick={() => {
+                      setClickedImageBorder();
+                      setBackgroundImg();
+                      setInputState([]);
+                    }}
+                    type="reset"
+                    className=" w-[90%] bg-secondary-color text-white py-2 rounded-md mt-3 mb-3 hover:bg-button-color transition duration-300 ease-in-out"
+                  >
+                    Delete Quiz
+                  </button>
+                </div>
+              </section>
+            </form>
+          </main>
         </main>
         <Footer />
-      </>
+      </main>
     );
   }
 }

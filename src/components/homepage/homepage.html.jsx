@@ -14,11 +14,16 @@ export default function Homepage() {
   } else {
     timeOfDay = "Night";
   }
-  
+
   return (
-    <div>
-      <Header />
-      <div className="content min-h-[80vh] flex justify-center items-center px-4 md:px-8">
+    <div className="100vh">
+      <Header
+        link2={"/about"}
+        content2={"ABOUT"}
+        link1={"/joinquiz"}
+        content1={"JOIN"}
+      />
+      <div className="content h-[93vh] flex justify-center items-center  md:px-8">
         <div className="text-center">
           <div className="type-container">
             <h1 className=" typed-out text-xl md:text-5xl  font-main font-bold text-light-color mb-4">
@@ -31,12 +36,18 @@ export default function Homepage() {
             Look no further than Becodeqanda
           </h3>
           <div className="space-4  flex justify-center gap-4 ">
-              <Link to="/register" className="font-bold cursor-pointer bg-transparent  border-teal-400 border-2 text-light-color mt-5  px-8 py-4 rounded-md  hover:bg-button-color  transition duration-300 ease-in-out">
-                Register
-              </Link>
-              <Link to="/login" className="cursor-pointer font-bold bg-transparent border-2 border-teal-400 text-light-color mt-5 px-8 py-4 rounded-md hover:bg-button-color transition duration-300 ease-in-out ">
-                Login
-              </Link>
+            <Link
+              to="/register"
+              className="font-bold cursor-pointer bg-transparent  border-teal-400 border-2 text-light-color mt-5  px-8 py-4 rounded-md  hover:bg-button-color  transition duration-300 ease-in-out"
+            >
+              Register
+            </Link>
+            <Link
+              to="/login"
+              className="cursor-pointer font-bold bg-transparent border-2 border-teal-400 text-light-color mt-5 px-8 py-4 rounded-md hover:bg-button-color transition duration-300 ease-in-out "
+            >
+              Login
+            </Link>
           </div>
         </div>
       </div>

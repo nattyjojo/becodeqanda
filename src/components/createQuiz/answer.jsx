@@ -40,24 +40,32 @@ export default function AnswerBtn(props) {
   }, [InputState, checkInputRef.current.value]);
   return (
     <div
-      className="relative m-[1rem] rounded inline-flex px-2 py-3"
+      className="relative whitespace-nowrap m-[1rem] w-[90%] border-solid rounded inline-flex  px-2 py-3"
       style={{ backgroundColor: inputWrapperColor }}
     >
       <div
         className={`inline-block rounded-lg`}
         style={{ backgroundColor: BtnBG }}
       >
-        <i className={`${props.fa} text-white px-[10px] mt-[2rem]`} />
+        <i className={`${props.fa} text-white px-[10px] py-[70%] mt-[2rem]`} />
       </div>
 
-      <div>
+      <div className="w-[100%]">
         <input
           type="text"
           ref={checkInputRef}
           required
           className="
-                py-[2rem] text-b outline-none  
-                text-center mr-1"
+          text-[#80808080]
+          max-w-full
+          w-[80%]
+          h-[10rem]
+          
+          font-[bold]
+           text-[20px]
+
+                outline-none  
+                text-center"
           placeholder={`Enter option ${props.option}`}
           onChange={(event) => {
             const inputValue = event.target.value;
@@ -82,7 +90,7 @@ export default function AnswerBtn(props) {
 
         <i
           ref={checkAnswer}
-          className={`text-white fa-regular fa-circle mt-7 ml-10 fa-3x mr-2 relative`}
+          className={`text-white relative fa-regular fa-circle mt-5 fa-3x`}
           style={{ visibility: displaySelectAnswer }}
           onClick={() => {
             if (checkAnswer.current.style.backgroundColor === "green") {
@@ -100,7 +108,7 @@ export default function AnswerBtn(props) {
           }}
         >
           <i
-            className={`fa-solid fa-check fa-1x absolute left-2 text-white bottom-2 text-[2rem]`}
+            className={`fa-solid fa-check fa-1x  text-white absolute left-2 bottom-2 text-[2rem]`}
           ></i>
         </i>
       </div>

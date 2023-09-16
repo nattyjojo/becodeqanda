@@ -4,10 +4,15 @@ import JoinQuiz from "../components/joinQuize/JoinQuiz";
 
 export default function JoinQuizPage() {
   return (
-    <>
-      <Header />
+    <main className="h-[100vh]">
+      <Header
+        link2={"/about"}
+        content2={"ABOUT"}
+        link1={"/joinquiz"}
+        content1={"JOIN"}
+      />
       <JoinQuiz />
       <Footer />
-    </>
+    </main>
   );
 }

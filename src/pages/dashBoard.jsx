@@ -30,11 +30,16 @@ export default function DashboardPage() {
 
   if (userIsValid === 200) {
     return (
-      <>
-        <Header />
+      <main className="100vh">
+        <Header
+          link2={"/about"}
+          content2={"ABOUT"}
+          link1={"/joinquiz"}
+          content1={"JOIN"}
+        />
         <Dashboard />
         <Footer />
-      </>
+      </main>
     );
   }
 }

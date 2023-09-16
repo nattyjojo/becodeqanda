@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-const Header = () => {
+const Header = (props) => {
   const [showMenu, setShowMenu] = useState(true);
 
   useEffect(() => {
@@ -19,26 +19,23 @@ const Header = () => {
   }, []);
 
   return (
-    <div
+    <nav
       id="header"
-      className="bg-secondary-color bg-opacity-50 text-light-color flex justify-between items-center p-5 text-lg font-medium"
+      className="bg-secondary-color bg-opacity-50 w-[100%] top-0 text-light-color flex justify-between items-center p-5 text-lg font-medium"
     >
-      <div className="logo cursor-pointer">
+      <div className="logo cursor-pointer text-[1.5rem]">
         <Link to="/">
           &lt;/<span className="logo text-button-color">be</span>
           <span>codeqanda</span>&gt;
         </Link>
       </div>
       {showMenu ? (
-        <div id="navbar" className="flex gap-2">
-          <Link to="/joinquiz" className="hover:text-button-color">
-            Join
+        <div id="navbar" className="flex gap-3 text-[1.5rem]">
+          <Link to={props.link1} className="hover:text-button-color">
+            {props.content1}
           </Link>
-          <Link to="/register" className="hover:text-button-color">
-            Register
-          </Link>
-          <Link to="/login" className="hover:text-button-color">
-            Login
+          <Link to={props.link2} className="hover:text-button-color">
+            {props.content2}
           </Link>
         </div>
       ) : (
@@ -52,7 +49,7 @@ const Header = () => {
           <i className="bi bi-list font-bold text-[30px] hover:text-button-color"></i>
         </button>
       )}
-    </div>
+    </nav>
   );
 };
 
