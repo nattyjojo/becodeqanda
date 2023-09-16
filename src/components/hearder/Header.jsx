@@ -21,7 +21,7 @@ const Header = (props) => {
   return (
     <nav
       id="header"
-      className="bg-secondary-color bg-opacity-50 w-[100%] absolute text-light-color flex justify-between items-center p-5 text-lg font-medium"
+      className="bg-secondary-color absolute bg-opacity-50 w-[100%] text-light-color flex justify-between items-center p-5 text-lg font-medium"
     >
       <div className="logo cursor-pointer text-[1.5rem]">
         <Link to="/">
