@@ -75,7 +75,7 @@ export default function CreateQuizPage() {
 
   if (userIsValid === 200) {
     return (
-      <main className="h-[100vh]">
+      <>
         <Header
           link2={"/about"}
           content2={"ABOUT"}
@@ -83,7 +83,7 @@ export default function CreateQuizPage() {
           content1={"JOIN"}
         />
         <main>
-          <main className="flex  h-[80vh]  justify-center mt-5 text-center px-[1rem] ">
+          <main className="flex  h-[50vh] py-[15vh]   justify-around  text-center px-[1rem]">
             <section className="w-[23.75vw] h-[75vh]  relative border-solid   text-white border-2">
               <input
                 onChange={(event) => setQuizName(event.target.value)}
@@ -325,7 +325,7 @@ export default function CreateQuizPage() {
           </main>
         </main>
         <Footer />
-      </main>
+      </>
     );
   }
 }

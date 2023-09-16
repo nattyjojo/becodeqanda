@@ -4,14 +4,14 @@ import Footer from "../components/footer/footer";
 
 const About = () => {
   return (
-    <main className="h-[100vh]">
+    <>
       <Header
         link2={"/about"}
         content2={"ABOUT"}
         link1={"/joinquiz"}
         content1={"JOIN"}
       />
-      <main className="text-center ">
+      <main className="text-center h-[30vh]">
         <h1 className=" mt-[20vh] font-semibold text-white text-[2rem]">
           Building a Collaborative Question and Answer App for
           <a
@@ -35,7 +35,7 @@ const About = () => {
       <section></section>
       {/* Add more iframe sections if needed */}
       <Footer />
-    </main>
+    </>
   );
 };
 
