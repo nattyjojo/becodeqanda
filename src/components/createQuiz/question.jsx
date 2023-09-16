@@ -13,13 +13,14 @@ export default function QuestionInput(props) {
     resize-none
     text-[#80808080]
     max-w-full
-    w-[60%]
+    w-[70%]
     mb-5
     font-[bold]
     overflow-hidden
     text-black
     text-[20px]
     py-5
+    h-[80px]
     
     
   "

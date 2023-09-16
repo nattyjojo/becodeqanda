@@ -82,8 +82,8 @@ export default function CreateQuizPage() {
           link1={"/joinquiz"}
           content1={"JOIN"}
         />
-        <main>
-          <main className="flex  h-[50vh] py-[15vh]   justify-around  text-center px-[1rem]">
+        <main className="flex justify-around">
+          <main className="flex  h-[50vh] py-[15vh]  text-center px-[1rem]">
             <section className="w-[23.75vw] h-[75vh]  relative border-solid   text-white border-2">
               <input
                 onChange={(event) => setQuizName(event.target.value)}
@@ -160,7 +160,7 @@ export default function CreateQuizPage() {
               className="flex text-center w-[71.25vw] "
             >
               <section
-                className="p-1 rounded-md pt-2"
+                className="p-1 m-[5px] rounded-md pt-2"
                 style={{
                   backgroundImage: `url(${backgroundImg})`,
                   backgroundRepeat: "no-repeat",
@@ -278,10 +278,11 @@ export default function CreateQuizPage() {
                   </section>
                 </section>
               </section>
-              <section className="w-[23.75vw] h-[75vh] relative  text-white border-2">
+              <section className="w-[23.75vw] h-[75vh] ml-[5px] relative  text-white border-2">
                 <TimeLimitButton set={setTimeLimit} />
                 <PointsButton set={setPoints} />
-                <section className="p-[1rem] overflow-scroll h-[60%]">
+
+                <section className="p-[1rem] overflow-scroll h-[38%]">
                   {createQuizBackgroundLinks.map(
                     (createQuizBackgroundLink, index) => (
                       <BackgroundImg
@@ -297,6 +298,7 @@ export default function CreateQuizPage() {
                 </section>
 
                 <div className="absolute w-[100%] bottom-0">
+                  <hr />
                   <button
                     type="submit"
                     onClick={() => {

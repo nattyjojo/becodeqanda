@@ -47,7 +47,7 @@ export default function AnswerBtn(props) {
         className={`inline-block rounded-lg`}
         style={{ backgroundColor: BtnBG }}
       >
-        <i className={`${props.fa} text-white px-[10px] py-[70%] mt-[2rem]`} />
+        <i className={`${props.fa} text-white px-[10px]  mt-[2rem]`} />
       </div>
 
       <div className="w-[100%]">
@@ -59,7 +59,7 @@ export default function AnswerBtn(props) {
           text-[#80808080]
           max-w-full
           w-[80%]
-          h-[10rem]
+          h-[5rem]
           
           font-[bold]
            text-[20px]
