@@ -11,7 +11,9 @@ export default function RegisterationPage() {
         link1={"/joinquiz"}
         content1={"JOIN"}
       />
-      <Registeration title={"Register"} />
+      <main>
+        <Registeration title={"Register"} />
+      </main>
       <Footer />
     </>
   );

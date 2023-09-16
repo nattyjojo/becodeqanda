@@ -33,7 +33,7 @@ export default function AddedQuizList(props) {
   }, [addedQuiz]);
 
   return (
-    <section style={{ overflow: "scroll", height: "75%" }}>
+    <section style={{ overflow: "scroll", height: "59%" }}>
       {quizList.map((e, index) => (
         <ShowAddedTem
           key={index}
