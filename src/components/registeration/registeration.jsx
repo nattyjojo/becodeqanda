@@ -29,7 +29,7 @@ const Registration = ({ title }) => {
   const SING_UP_APIURL =
     "https://kahoutserver-production.up.railway.app/api/sign_up";
   return (
-    <section className="flex justify-center items-center h-[80vh] font-medium">
+    <section className="flex justify-center items-center h-[100vh] font-medium">
       <main className="bg-white p-6 md:p-8 rounded-lg shadow-md  w-full lg:w-1/2 xl:w-1/3">
         <h1 className="text-2xl font-bold mb-6">{title}</h1>
         <form

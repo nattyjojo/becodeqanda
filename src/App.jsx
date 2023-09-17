@@ -9,6 +9,7 @@ import CreateQuizPage from "./pages/creatquiz";
 import Livegame from "./pages/playgame";
 import ShowQuizPage from "./pages/ShowQuizPage";
 import About from "./pages/about";
+import WaitingGamePage from "./pages/WaitngGamePage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/profile" element={<ShowQuizPage />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<Homepage />} />
+        <Route path="/waiting" element={<WaitingGamePage />} />
       </Routes>
     </>
   );
