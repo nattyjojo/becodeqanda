@@ -33,12 +33,45 @@ export default function CreateQuizPage() {
   const [saveOrDelete, setSaveOrDelete] = useState();
   const errorMsg = () => toast.error("Select Correct Answer");
   const [quizName, setQuizName] = useState();
+  const toggleAddedQuizSection = useRef();
+  const toggleImagesSection = useRef();
+  const resizeAnserSection = useRef();
+  const displayNextButton = useRef();
 
   const defaultBackgroundImage =
     "https://www.codefear.com/wp-content/content/2013/07/qa.jpg";
   const defaultTimeLimit = 5;
   const defaultPoints = 5;
+  // window size for stlying
+  useEffect(() => {
+    const handleWindowSize = (event) => {
+      const currentWindowSize = event.target.innerWidth;
+      if (currentWindowSize < 900) {
+        toggleImagesSection.current.style.display = "none";
+        toggleAddedQuizSection.current.style.display = "none";
+        //displayNextButton.current.style.display = "";
 
+        resizeAnserSection.current.style.minWidth = "100%";
+        resizeAnserSection.current.style.minHeight = "100%";
+      } else {
+        currentWindowSize > 1250;
+        toggleImagesSection.current.style.display = "";
+        toggleAddedQuizSection.current.style.display = "";
+        resizeAnserSection.current.style.minWidth = "47.5vw";
+        resizeAnserSection.current.style.maxheight = "100vw";
+        displayNextButton.current.style.display = "none";
+
+        // height: "75vh",
+        // marginTop: "2%",
+        // maxWidth: "47.5vw",
+      }
+    };
+
+    window.addEventListener("resize", handleWindowSize);
+    return () => {
+      window.removeEventListener("resize", handleWindowSize);
+    };
+  }, []);
   const answerContainer = [1, 2, 3, 4];
   let ans = [];
   const setSaveOrDeletState = (todo) => {
@@ -48,6 +81,10 @@ export default function CreateQuizPage() {
       todo === "delete";
       setSaveOrDelete("delete");
     }
+  };
+  const handleNextButton = () => {
+    resizeAnserSection.current.style.display = "none";
+    console.log("clecked");
   };
 
   const finalAnswer = (value) => {
@@ -84,7 +121,10 @@ export default function CreateQuizPage() {
         />
         <main className="flex justify-around">
           <main className="flex  h-[50vh] py-[15vh]  text-center px-[1rem]">
-            <section className="w-[23.75vw] h-[75vh]  relative border-solid   text-white border-2">
+            <section
+              ref={toggleAddedQuizSection}
+              className="w-[23.75vw] h-[75vh]  relative border-solid   text-white border-2"
+            >
               <input
                 onChange={(event) => setQuizName(event.target.value)}
                 type="text"
@@ -157,128 +197,150 @@ export default function CreateQuizPage() {
                   errorMsg();
                 }
               }}
-              className="flex text-center w-[71.25vw] "
+              className="flex justify-center text-center w-[71.25vw] "
             >
-              <section
-                className="p-1 m-[5px] rounded-md pt-2"
-                style={{
-                  backgroundImage: `url(${backgroundImg})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  height: "75vh",
-                  marginTop: "2%",
-                  maxWidth: "47.5vw",
-                }}
-              >
-                <QuestionInput question={question} setQuestion={setQuestion} />
-                <br />
+              <section>
+                <section
+                  ref={resizeAnserSection}
+                  className="p-1  rounded-md pt-2"
+                  style={{
+                    backgroundImage: `url(${backgroundImg})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    height: "75vh",
+                    marginTop: "2%",
+                    maxWidth: "47.5vw",
+                  }}
+                >
+                  <QuestionInput
+                    question={question}
+                    setQuestion={setQuestion}
+                  />
+                  <br />
 
-                <section className="  flex">
-                  <section>
-                    {answerContainer.map((e, index) => {
-                      switch (index) {
-                        case 0:
-                          return (
-                            <AnswerBtn
-                              finalAnswer={finalAnswer}
-                              setGetAnswer={setGetAnswer}
-                              getAnswer={getAnswer}
-                              selectedAnswer={selectedAnswer}
-                              setSelectedAnswer={setSelectedAnswer}
-                              key={index}
-                              InputState={InputState}
-                              setInputState={setInputState}
-                              index={index}
-                              quizAnswer={quizAnswer}
-                              setQuizAnswer={setQuizAnswer}
-                              optionValue={option1}
-                              setOptionValue={setOption1}
-                              option="1"
-                              color="#c60929"
-                              fa="fa-regular fa-circle  fa-2x"
-                            />
-                          );
+                  <section className="flex">
+                    <section className="flex">
+                      <section>
+                        {answerContainer.map((e, index) => {
+                          switch (index) {
+                            case 0:
+                              return (
+                                <AnswerBtn
+                                  finalAnswer={finalAnswer}
+                                  setGetAnswer={setGetAnswer}
+                                  getAnswer={getAnswer}
+                                  selectedAnswer={selectedAnswer}
+                                  setSelectedAnswer={setSelectedAnswer}
+                                  key={index}
+                                  InputState={InputState}
+                                  setInputState={setInputState}
+                                  index={index}
+                                  quizAnswer={quizAnswer}
+                                  setQuizAnswer={setQuizAnswer}
+                                  optionValue={option1}
+                                  setOptionValue={setOption1}
+                                  option="1"
+                                  color="#c60929"
+                                  fa="fa-regular fa-circle  fa-2x"
+                                />
+                              );
 
-                        case 1:
-                          return (
-                            <AnswerBtn
-                              finalAnswer={finalAnswer}
-                              setGetAnswer={setGetAnswer}
-                              getAnswer={getAnswer}
-                              selectedAnswer={selectedAnswer}
-                              setSelectedAnswer={setSelectedAnswer}
-                              key={index}
-                              InputState={InputState}
-                              setInputState={setInputState}
-                              index={index}
-                              quizAnswer={quizAnswer}
-                              setQuizAnswer={setQuizAnswer}
-                              optionValue={option2}
-                              setOptionValue={setOption2}
-                              option="2"
-                              color="#0542b9"
-                              fa="fa-regular fa-square  fa-2x"
-                            />
-                          );
-                        default:
-                          return;
-                      }
-                    })}
-                  </section>
-                  <section>
-                    {answerContainer.map((e, index) => {
-                      switch (index) {
-                        case 2:
-                          return (
-                            <AnswerBtn
-                              finalAnswer={finalAnswer}
-                              setGetAnswer={setGetAnswer}
-                              getAnswer={getAnswer}
-                              selectedAnswer={selectedAnswer}
-                              setSelectedAnswer={setSelectedAnswer}
-                              key={index}
-                              InputState={InputState}
-                              setInputState={setInputState}
-                              index={index}
-                              quizAnswer={quizAnswer}
-                              setQuizAnswer={setQuizAnswer}
-                              optionValue={option3}
-                              setOptionValue={setOption3}
-                              option="3"
-                              color="#f5a23d"
-                              fa="fa-regular  fa-star  fa-2x"
-                            />
-                          );
-                        case 3:
-                          return (
-                            <AnswerBtn
-                              finalAnswer={finalAnswer}
-                              setGetAnswer={setGetAnswer}
-                              getAnswer={getAnswer}
-                              selectedAnswer={selectedAnswer}
-                              setSelectedAnswer={setSelectedAnswer}
-                              key={index}
-                              InputState={InputState}
-                              setInputState={setInputState}
-                              index={index}
-                              quizAnswer={quizAnswer}
-                              setQuizAnswer={setQuizAnswer}
-                              optionValue={option4}
-                              setOptionValue={setOption4}
-                              option="4"
-                              color="#106b03"
-                              fa="fa-regular fa-solid fa-moon  fa-2x"
-                            />
-                          );
+                            case 1:
+                              return (
+                                <AnswerBtn
+                                  finalAnswer={finalAnswer}
+                                  setGetAnswer={setGetAnswer}
+                                  getAnswer={getAnswer}
+                                  selectedAnswer={selectedAnswer}
+                                  setSelectedAnswer={setSelectedAnswer}
+                                  key={index}
+                                  InputState={InputState}
+                                  setInputState={setInputState}
+                                  index={index}
+                                  quizAnswer={quizAnswer}
+                                  setQuizAnswer={setQuizAnswer}
+                                  optionValue={option2}
+                                  setOptionValue={setOption2}
+                                  option="2"
+                                  color="#0542b9"
+                                  fa="fa-regular fa-square  fa-2x"
+                                />
+                              );
+                            default:
+                              return;
+                          }
+                        })}
+                      </section>
+                      <section>
+                        {answerContainer.map((e, index) => {
+                          switch (index) {
+                            case 2:
+                              return (
+                                <AnswerBtn
+                                  finalAnswer={finalAnswer}
+                                  setGetAnswer={setGetAnswer}
+                                  getAnswer={getAnswer}
+                                  selectedAnswer={selectedAnswer}
+                                  setSelectedAnswer={setSelectedAnswer}
+                                  key={index}
+                                  InputState={InputState}
+                                  setInputState={setInputState}
+                                  index={index}
+                                  quizAnswer={quizAnswer}
+                                  setQuizAnswer={setQuizAnswer}
+                                  optionValue={option3}
+                                  setOptionValue={setOption3}
+                                  option="3"
+                                  color="#f5a23d"
+                                  fa="fa-regular  fa-star  fa-2x"
+                                />
+                              );
+                            case 3:
+                              return (
+                                <AnswerBtn
+                                  finalAnswer={finalAnswer}
+                                  setGetAnswer={setGetAnswer}
+                                  getAnswer={getAnswer}
+                                  selectedAnswer={selectedAnswer}
+                                  setSelectedAnswer={setSelectedAnswer}
+                                  key={index}
+                                  InputState={InputState}
+                                  setInputState={setInputState}
+                                  index={index}
+                                  quizAnswer={quizAnswer}
+                                  setQuizAnswer={setQuizAnswer}
+                                  optionValue={option4}
+                                  setOptionValue={setOption4}
+                                  option="4"
+                                  color="#106b03"
+                                  fa="fa-regular fa-solid fa-moon  fa-2x"
+                                />
+                              );
 
-                        default:
-                          return null;
-                      }
-                    })}
+                            default:
+                              return null;
+                          }
+                        })}
+                      </section>
+                      <br />
+                    </section>
                   </section>
                 </section>
+                {/* <button
+                  onClick={() => {
+                    handleNextButton();
+                    // event.preventDefault();
+                  }}
+                  ref={displayNextButton}
+                  className=" text-center w-[100%] bg-secondary-color text-white py-2 rounded-md mt-3 hover:bg-button-color transition duration-300 ease-in-out"
+                >
+                  NEXT
+                </button> */}
               </section>
-              <section className="w-[23.75vw] h-[75vh] ml-[5px] relative  text-white border-2">
+              <section
+                ref={toggleImagesSection}
+                className="w-[23.75vw] h-[75vh] ml-[5px] relative  text-white border-2"
+              >
                 <TimeLimitButton set={setTimeLimit} />
                 <PointsButton set={setPoints} />
 
