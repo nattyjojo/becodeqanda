@@ -40,7 +40,7 @@ export default function AnswerBtn(props) {
   }, [InputState, checkInputRef.current.value]);
   return (
     <div
-      className="relative whitespace-nowrap m-[1rem] w-[90%] border-solid rounded inline-flex  px-2 py-3"
+      className="relative whitespace-nowrap m-[1rem]  w-[90%] border-solid rounded inline-flex  px-2 py-3"
       style={{ backgroundColor: inputWrapperColor }}
     >
       <div
