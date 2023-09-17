@@ -49,7 +49,7 @@ export default function WaitingGame() {
 
       {/* Additional Content */}
       <div className="additional-content">
-        <p className="instruction">
+        <p className="instruction bg-black opacity-80">
           Instructions: Get ready to test your knowledge!
         </p>
         <ul className="features">
