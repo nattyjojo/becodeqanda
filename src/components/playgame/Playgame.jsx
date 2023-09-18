@@ -169,7 +169,7 @@ export default function Playgame(props) {
     setIsUserProfileVisible(!isUserProfileVisible);
   };
 
-  const userProfileClass = `userProfile p-6 bg-white md:w-2/5 mb-8 md:ml-auto rounded-md shadow-md ${
+  const userProfileClass = `userProfile p-6 bg-white md:w-2/5 mb-7 mt-[60px] md:ml-auto rounded-md shadow-md ${
     isUserProfileVisible ? "animate-slide-in" : "animate-slide-out"
   }`;
 
@@ -193,7 +193,7 @@ export default function Playgame(props) {
     
      {/* Quiz content  */}
       <section className="quizContent text-white text-center p-1 rounded-md pt-2 md:w-5/5 bg-cover bg-center md:h-screen">
-        <div className="counter flex justify-between">
+        <div className="counter flex justify-between mt-16">
           <div className="countNumber text-white flex items-center justify-center rounded-full bg-[black] w-14 h-14 md:w-20 md:h-20 font-bold text-xl md:text-2xl mt-2 md:mt-4 ml-4">
             {countdown}
           </div>

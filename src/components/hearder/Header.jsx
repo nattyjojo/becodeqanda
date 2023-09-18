@@ -21,16 +21,16 @@ const Header = (props) => {
   return (
     <nav
       id="header"
-      className="bg-secondary-color fixed top-0 bg-opacity-50 w-[100%] text-light-color flex justify-between items-center p-5 text-lg font-medium"
+      className="bg-secondary-color  fixed bg-opacity-95 w-[100%] text-light-color flex justify-between items-center p-5 text-sm font-medium"
     >
-      <div className="logo cursor-pointer text-[1.5rem]">
+      <div className="logo cursor-pointer text-[1.1rem]">
         <Link to="/">
           &lt;/<span className="logo text-button-color">be</span>
           <span>codeqanda</span>&gt;
         </Link>
       </div>
       {showMenu ? (
-        <div id="navbar" className="flex gap-3 text-[1.5rem]">
+        <div id="navbar" className="flex gap-3 text-[1.1rem]">
           <Link to={props.link1} className="hover:text-button-color">
             {props.content1}
           </Link>
