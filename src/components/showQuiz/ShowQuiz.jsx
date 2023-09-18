@@ -27,7 +27,7 @@ function ShowQuiz() {
   }, []);
 
   return (
-    <div className="bg-gray-100 min-h-screen py-8">
+    <div className="bg-gray-100  min-h-screen py-8">
       <div className="container mx-auto p-4 bg-white shadow-lg rounded-lg">
         <h1 className="text-3xl font-semibold mb-6">{username} Saved Quizzes</h1>
         {loading ? (
@@ -44,7 +44,7 @@ function ShowQuiz() {
             {quizzes.map((quiz) => (
               <div
                 key={quiz.id}
-                className="border border-gray-300 rounded p-4 mb-4 hover:shadow-md transition duration-300"
+                className="border border-gray-300 rounded flex items-center justify-center p-4 mb-4 hover:shadow-md transition duration-300"
               >
                 <p className="text-xl font-semibold">Quiz Name: {quiz.name}</p>
                 <p className="text-blue-500 hover:underline">Link: {quiz.link}</p>
