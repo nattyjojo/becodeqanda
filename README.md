@@ -25,7 +25,7 @@ BeCodeQanda is a web application that provides a platform for users to participa
 - React: A JavaScript library for building user interfaces.
 - Bootstrap: A popular front-end framework for building responsive websites.
 - Tailwind CSS: A utility-first CSS framework for rapidly building custom user interfaces.
-- Backend: Express Js , MySql and Railway for Deplyoment
+- Backend: Express Js , MySql and Railway for Deployment
 
 ## Getting Started
 To get started with BeCodeQanda, follow these steps:
@@ -34,6 +34,9 @@ To get started with BeCodeQanda, follow these steps:
 2. Install the dependencies: `npm install`
 3. Start the development server: `npm run dev`
 4. Access the app in your web browser at: `http://localhost:3000`
+
+## Homepage
+![BeCodeQanda Homepage](https://github.com/nattyjojo/becodeqanda/blob/main/src/assets/images/becodeqanda.png?raw=true)
 
 ## Deployment
 BeCodeQanda is deployed on Netlify. You can access the live version of the app at: [https://whimsical-melomakarona-344a50.netlify.app/](https://whimsical-melomakarona-344a50.netlify.app/)
