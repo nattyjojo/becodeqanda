@@ -60,10 +60,6 @@ export default function CreateQuizPage() {
         resizeAnserSection.current.style.minWidth = "47.5vw";
         resizeAnserSection.current.style.maxheight = "100vw";
         displayNextButton.current.style.display = "none";
-
-        // height: "75vh",
-        // marginTop: "2%",
-        // maxWidth: "47.5vw",
       }
     };
 
